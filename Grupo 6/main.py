@@ -71,5 +71,34 @@ for busqueda in abuscar:
                 writer_object.writerow(medicamento_a.a_lista())  
                 # Close the file object
                 f_object.close()
+    print("TERMINE AHUMADA")
+    
+    url_salcobrand = "https://salcobrand.cl/search_result?query=" + busqueda
+
+
+    #posible for con next page
+
+    f_salcobrand = Salcobrand("paracetamol",url_salcobrand+"paracetamol")
+    nose = f_salcobrand.get_product_list()
+    lista_de_medicamentos_salcobrand=[]
+    for producto in nose:
+    
+      product_desc = producto.find("span",{"class" : "product-info truncate"}).text
+      precio_clp = producto.find("div",{"class" : "sale-price"}).text
+      precio_clp = precio_clp.replace("$","")
+      precio_clp = precio_clp.replace(".","")
+      precio_clp = precio_clp.replace("Oferta:","")
+      precio_uf = int(precio_clp) / uf
+      precio_uf = round(precio_uf,2)
+      medicamento_b= Medicamento(busqueda,"Salcobrand", product_desc,precio_clp,precio_uf)
+      lista_de_medicamentos_salcobrand.append(medicamento_b)
+      with open('out.csv', 'a', newline='',encoding='utf8') as f_object:  
+             # Pass the CSV  file object to the writer() function
+             writer_object = csv.writer(f_object)
+             # Result - a writer object
+             # Pass the data in the list as an argument into the writerow() function
+             writer_object.writerow(medicamento_b.a_lista())  
+             # Close the file object
+             f_object.close()
 
 print("TERMINE")

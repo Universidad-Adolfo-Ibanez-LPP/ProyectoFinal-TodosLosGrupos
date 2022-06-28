@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 from requests_html import HTMLSession
 import requests
-import parser
+
 
 
 class Banco():
