@@ -21,13 +21,17 @@ driver = webdriver.Chrome(options=chrome_options)
 
 driver.get("https://salcobrand.cl/search_result?query=JARABE")
 
-page_source = driver.page_source
 
 while(True):
+  page_source = driver.page_source
+  soup = BeautifulSoup(page_source, 'lxml')
+  product_list = soup.findAll("li",{"class" : "ais-Hits-item"})
+  print(len(product_list))
 
-    try:
-        link = driver.find_element(By.LINK_TEXT, '»')
-        driver.execute_script("arguments[0].click();", link)
-        time.sleep(4)
-    except:
-        break
+
+  try:
+    link = driver.find_element(By.LINK_TEXT, '»')
+    driver.execute_script("arguments[0].click();", link)
+    time.sleep(4)
+  except:
+    break
