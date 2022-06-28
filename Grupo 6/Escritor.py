@@ -16,20 +16,6 @@ class Escritor():
 
     def to_csv_ahumada(self):
         
-        # paginas_ahumada = []
-
-        # query = 'https://www.farmaciasahumada.cl/catalogsearch/result/index/?p='+str(1)+'&q=' + busqueda
-
-        # while True:
-        #     f_ahumada = Ahumada(busqueda,query) #crea un objeto de la clase Ahumada
-        #     next_page = f_ahumada.getnextpage() #obtiene el url de la siguiente pagina
-        #     if  next_page == False: #si no hay siguiente pagina, termina el ciclo
-        #         break
-        #     else:
-        #         query = next_page #si hay siguiente pagina, cambia el query
-        #     paginas_ahumada.append(f_ahumada) #agrega el objeto a la lista de paginas de ahumada
-
-
         lista_de_medicamentos_ahumada = []
         for pagina in self.paginas: #recorre la lista de paginas de ahumada
             f_ahumada_product_list = (pagina.get_product_list()) #obtiene la lista de productos de la pagina
@@ -51,5 +37,27 @@ class Escritor():
                     # Close the file object
                     f_object.close()
 
-
-
+    def to_csv_salcobrand(self):
+     
+      lista_de_medicamentos_salcobrand=[]
+      for pagina in self.paginas:
+        f_salcobrand_product_list = (pagina.get_product_list())
+        for producto in f_salcobrand_product_list:
+    
+            product_desc = producto.find("span",{"class" : "product-info truncate"}).text
+            precio_clp = producto.find("div",{"class" : "sale-price"}).text
+            precio_clp = precio_clp.replace("$","")
+            precio_clp = precio_clp.replace(".","")
+            precio_clp = precio_clp.replace("Oferta:","")
+            precio_uf = int(precio_clp) / self.uf
+            precio_uf = round(precio_uf,2)
+            medicamento_b= Medicamento(self.busqueda,"Salcobrand", product_desc,precio_clp,precio_uf)
+            lista_de_medicamentos_salcobrand.append(medicamento_b)
+            with open('out.csv', 'a', newline='',encoding='utf8') as f_object:  
+                # Pass the CSV  file object to the writer() function
+                writer_object = csv.writer(f_object)
+                # Result - a writer object
+                # Pass the data in the list as an argument into the writerow() function
+                writer_object.writerow(medicamento_b.a_lista())  
+                # Close the file object
+                f_object.close()
