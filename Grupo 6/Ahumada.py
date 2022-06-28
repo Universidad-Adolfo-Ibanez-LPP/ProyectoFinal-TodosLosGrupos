@@ -1,5 +1,8 @@
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup
+from Medicamento import *
+from BancoUF import *
+import csv
 
 
 class Ahumada():
@@ -51,6 +54,5 @@ class Ahumada():
         for i in range(0, n - 12 ):
             product_list.pop()
         return product_list
-
 
 
