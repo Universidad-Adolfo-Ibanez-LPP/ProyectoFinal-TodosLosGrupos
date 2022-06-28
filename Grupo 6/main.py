@@ -2,9 +2,11 @@ from requests_html import HTMLSession
 from bs4 import BeautifulSoup
 from sympy import print_maple_code
 from Ahumada import *
+from Escritor import Escritor
 from Salcobrand import *
 from Medicamento import *
 from BancoUF import *
+from Escritor import *
 import csv
 
 url_ahumada = "https://www.farmaciasahumada.cl/catalogsearch/result/index/?p=1&q="
@@ -38,6 +40,8 @@ paginas_cruz = []
 
 
 for busqueda in abuscar:
+#####
+    paginas_ahumada = []
 
     query = 'https://www.farmaciasahumada.cl/catalogsearch/result/index/?p='+str(1)+'&q=' + busqueda
 
@@ -50,55 +54,38 @@ for busqueda in abuscar:
             query = next_page #si hay siguiente pagina, cambia el query
         paginas_ahumada.append(f_ahumada) #agrega el objeto a la lista de paginas de ahumada
 
+    escritor_ahumada = Escritor(busqueda = busqueda,uf=uf,paginas = paginas_ahumada)
 
-    lista_de_medicamentos_ahumada = []
-    for pagina in paginas_ahumada: #recorre la lista de paginas de ahumada
-        f_ahumada_product_list = (pagina.get_product_list()) #obtiene la lista de productos de la pagina
-        for producto in f_ahumada_product_list: #recorre la lista de productos de la pagina
-            product_desc = producto.find("a",{"class" : "product-item-link"}).text #obtiene la descripcion del producto
-            precio_clp = producto.find("span",{"class" : "price"}).text #obtiene el precio del producto
-            precio_clp = precio_clp.replace("$","")
-            precio_clp = int(precio_clp.replace(".",""))
-            precio_uf = round(precio_clp / uf,2) #calcula el precio en uf
-            medicamento_a = Medicamento(busqueda,"Ahumada", product_desc,precio_clp,precio_uf)
-            lista_de_medicamentos_ahumada.append(medicamento_a) #agrega el medicamento a la lista de medicamentos
-            # print(Medicamento("Ahumada", product_desc,precio_clp,precio_uf)) #imprime el medicamento en formato csv
-            with open('out.csv', 'a', newline='',encoding='utf8') as f_object:  
-                # Pass the CSV  file object to the writer() function
-                writer_object = csv.writer(f_object)
-                # Result - a writer object
-                # Pass the data in the list as an argument into the writerow() function
-                writer_object.writerow(medicamento_a.a_lista())  
-                # Close the file object
-                f_object.close()
-    print("TERMINE AHUMADA")
+    escritor_ahumada.to_csv_ahumada()
+# ######
+#     print("TERMINE AHUMADA")
     
-    url_salcobrand = "https://salcobrand.cl/search_result?query=" + busqueda
+#     url_salcobrand = "https://salcobrand.cl/search_result?query=" + busqueda
 
 
-    #posible for con next page
+#     #posible for con next page
 
-    f_salcobrand = Salcobrand("paracetamol",url_salcobrand+"paracetamol")
-    nose = f_salcobrand.get_product_list()
-    lista_de_medicamentos_salcobrand=[]
-    for producto in nose:
+#     f_salcobrand = Salcobrand("paracetamol",url_salcobrand+"paracetamol")
+#     nose = f_salcobrand.get_product_list()
+#     lista_de_medicamentos_salcobrand=[]
+#     for producto in nose:
     
-      product_desc = producto.find("span",{"class" : "product-info truncate"}).text
-      precio_clp = producto.find("div",{"class" : "sale-price"}).text
-      precio_clp = precio_clp.replace("$","")
-      precio_clp = precio_clp.replace(".","")
-      precio_clp = precio_clp.replace("Oferta:","")
-      precio_uf = int(precio_clp) / uf
-      precio_uf = round(precio_uf,2)
-      medicamento_b= Medicamento(busqueda,"Salcobrand", product_desc,precio_clp,precio_uf)
-      lista_de_medicamentos_salcobrand.append(medicamento_b)
-      with open('out.csv', 'a', newline='',encoding='utf8') as f_object:  
-             # Pass the CSV  file object to the writer() function
-             writer_object = csv.writer(f_object)
-             # Result - a writer object
-             # Pass the data in the list as an argument into the writerow() function
-             writer_object.writerow(medicamento_b.a_lista())  
-             # Close the file object
-             f_object.close()
+#       product_desc = producto.find("span",{"class" : "product-info truncate"}).text
+#       precio_clp = producto.find("div",{"class" : "sale-price"}).text
+#       precio_clp = precio_clp.replace("$","")
+#       precio_clp = precio_clp.replace(".","")
+#       precio_clp = precio_clp.replace("Oferta:","")
+#       precio_uf = int(precio_clp) / uf
+#       precio_uf = round(precio_uf,2)
+#       medicamento_b= Medicamento(busqueda,"Salcobrand", product_desc,precio_clp,precio_uf)
+#       lista_de_medicamentos_salcobrand.append(medicamento_b)
+#       with open('out.csv', 'a', newline='',encoding='utf8') as f_object:  
+#              # Pass the CSV  file object to the writer() function
+#              writer_object = csv.writer(f_object)
+#              # Result - a writer object
+#              # Pass the data in the list as an argument into the writerow() function
+#              writer_object.writerow(medicamento_b.a_lista())  
+#              # Close the file object
+#              f_object.close()
 
 print("TERMINE")
