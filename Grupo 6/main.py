@@ -1,9 +1,12 @@
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup
 from sympy import print_maple_code
+
 from destinos.farmacias.Ahumada import *
-from csvOriented.Escritor import Escritor
 from destinos.farmacias.Salcobrand import *
+from destinos.farmacias.RedFarma import *
+
+from csvOriented.Escritor import Escritor
 from csvOriented.Medicamento import *
 from destinos.BancoUF import *
 from csvOriented.Escritor import *
@@ -29,41 +32,77 @@ for line in lines:
 
 print(abuscar)
 
-uf = int(Banco().get_uf())
+# uf = int(Banco().get_uf())
 
-print("El valor actual del UF es: " + str(uf))
+# print("El valor actual del UF es: " + str(uf))
 
+uf = 33060
 
 
 
 for busqueda in abuscar:
 
+
+    print("busqueda de ahora = ", busqueda)
     paginas_ahumada = []
     paginas_salcobrand = []
-    paginas_cruz = []
+    paginas_red = []
 
-    query = 'https://www.farmaciasahumada.cl/catalogsearch/result/index/?p='+str(1)+'&q=' + busqueda
+    url_ahumada = 'https://www.farmaciasahumada.cl/catalogsearch/result/index/?p='+str(1)+'&q=' + busqueda
 
     while True:
-        f_ahumada = Ahumada(busqueda,query) #crea un objeto de la clase Ahumada
+        f_ahumada = Ahumada(busqueda,url_ahumada) #crea un objeto de la clase Ahumada
         next_page = f_ahumada.getnextpage() #obtiene el url de la siguiente pagina
         if  next_page == False: #si no hay siguiente pagina, termina el ciclo
             break
         else:
-            query = next_page #si hay siguiente pagina, cambia el query
+            url_ahumada = next_page #si hay siguiente pagina, cambia el query
         paginas_ahumada.append(f_ahumada) #agrega el objeto a la lista de paginas de ahumada
 
     escritor_ahumada = Escritor(busqueda = busqueda,uf=uf,paginas = paginas_ahumada)
+    
     escritor_ahumada.to_csv_ahumada()
-    print("TERMINE AHUMADA")
 
     url_salcobrand = "https://salcobrand.cl/search_result?query=" + busqueda
     f_salcobrand= Salcobrand(busqueda=busqueda, url=url_salcobrand)
-    paginas_salcobrand.append(f_salcobrand)
+    paginas_salcobrand.append(f_salcobrand) 
 
     escritor_salcobrand= Escritor(busqueda=busqueda,uf=uf,paginas=paginas_salcobrand)
     escritor_salcobrand.to_csv_salcobrand()
-    print("TERMINE SALCOBRAND")
+
+
+    url_red = "https://www.redfarma.cl/productos/?nombre=" + busqueda + "&pagina=1"
+    f_red = RedFarma(busqueda,url_red)
+    paginas_red.append(f_red) 
+    escritor_red= Escritor(busqueda=busqueda,uf=uf,paginas=paginas_red)
+
+    numero  = 1
+
+    while True:
+        url_red = "https://www.redfarma.cl/productos/?nombre=" + busqueda + "&pagina="+str(numero)
+        f_red = RedFarma(busqueda,url_red)
+        this_page = f_red.is_valid_page() #oRevisa asi la pagina tiene items
+        if  this_page: #si no hay siguiente pagina, termina el ciclo
+            paginas_red.append(f_red)
+            numero = numero + 1
+        else:
+            
+            break
+
+    escritor_red = Escritor(busqueda = busqueda,uf=uf,paginas = paginas_red)
+    escritor_red.to_csv_red()
+    print("TERMINE RED")
+
+
+
+
+
+
+
+
+
+
+
 # ######
 #     print("TERMINE AHUMADA")
 

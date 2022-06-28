@@ -19,6 +19,6 @@ class Farmacia:
         """Devuelve el html de la pagina, el _ indica que esd una funcion privada"""
         s = HTMLSession()
         r = s.get(self.get_url())
-        r.html.render(sleep=4,timeout=90)
+        r.html.render(sleep=5,timeout=120)
         soup = BeautifulSoup(r.html.html, 'html.parser')
         return soup

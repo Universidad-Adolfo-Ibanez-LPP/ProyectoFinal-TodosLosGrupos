@@ -14,7 +14,7 @@ class Banco():
         """Devuelve el html de la pagina"""
         s = HTMLSession()
         r = s.get(self.get_url())
-        r.html.render(sleep=1,timeout=20)
+        r.html.render(sleep=1,timeout=60)
         soup = BeautifulSoup(r.html.html, 'html.parser')
         return soup
 

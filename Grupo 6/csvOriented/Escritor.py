@@ -61,3 +61,33 @@ class Escritor():
                 writer_object.writerow(medicamento_b.a_lista())  
                 # Close the file object
                 f_object.close()
+    
+    def to_csv_red(self):
+
+        lista_de_medicamentos_salcobrand=[]
+        for pagina in self.paginas:
+            f_red_product_list = (pagina.get_product_list())
+            for producto in f_red_product_list:
+    
+                product_desc = producto.find("div",{"class" : "nombre"}).text
+                precio_clp = producto.find("div",{"class" : "normal"}).text
+                precio_clp = precio_clp.replace("$","")
+                precio_clp = precio_clp.replace(".","")
+                precio_clp = precio_clp.replace("Normal:","")
+                precio_clp = precio_clp.replace("\n","")
+                if (precio_clp == ""):
+                    #El ultimo item se entrega vacio, por eso se ignora
+                    break
+                precio_uf = int(precio_clp) / self.uf
+                precio_uf = round(precio_uf,2)
+
+                medicamento_b= Medicamento(self.busqueda,"RedFarma", product_desc,precio_clp.strip(),precio_uf)
+                lista_de_medicamentos_salcobrand.append(medicamento_b)
+                with open('out.csv', 'a', newline='',encoding='utf8') as f_object:  
+                    # Pass the CSV  file object to the writer() function
+                    writer_object = csv.writer(f_object)
+                    # Result - a writer object
+                    # Pass the data in the list as an argument into the writerow() function
+                    writer_object.writerow(medicamento_b.a_lista())  
+                    # Close the file object
+                    f_object.close()
