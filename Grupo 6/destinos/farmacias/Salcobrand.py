@@ -2,9 +2,11 @@
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup
 
+from destinos.farmacias.Farmacia import *
 
 
-class Salcobrand():
+
+class Salcobrand(Farmacia):
 
     def __init__(self, busqueda,url):
         self.busqueda = busqueda
@@ -20,13 +22,8 @@ class Salcobrand():
        
     
 
-    def getdata(self):
-        """Devuelve el html de la pagina"""
-        s = HTMLSession()
-        r = s.get(self.get_url())
-        r.html.render(sleep=1,timeout=90)
-        soup = BeautifulSoup(r.html.html, 'html.parser')
-        return soup
+    # def _getdata(self):
+    """funcion heredada de clase farmacia"""
 
     
 
@@ -46,7 +43,7 @@ class Salcobrand():
 
     def get_product_list(self):
         """Devuelve una lista de productos"""
-        soup = self.getdata()
+        soup = self._getdata()
         product_list = soup.findAll("li",{"class" : "ais-Hits-item"})
 
         # n = len(product_list)

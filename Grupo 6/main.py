@@ -1,12 +1,12 @@
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup
 from sympy import print_maple_code
-from Ahumada import *
-from Escritor import Escritor
-from Salcobrand import *
-from Medicamento import *
-from BancoUF import *
-from Escritor import *
+from destinos.farmacias.Ahumada import *
+from csvOriented.Escritor import Escritor
+from destinos.farmacias.Salcobrand import *
+from csvOriented.Medicamento import *
+from destinos.BancoUF import *
+from csvOriented.Escritor import *
 import csv
 
 url_ahumada = "https://www.farmaciasahumada.cl/catalogsearch/result/index/?p=1&q="
@@ -34,13 +34,13 @@ uf = int(Banco().get_uf())
 print("El valor actual del UF es: " + str(uf))
 
 
-paginas_cruz = []
 
 
 for busqueda in abuscar:
-#####
+
     paginas_ahumada = []
     paginas_salcobrand = []
+    paginas_cruz = []
 
     query = 'https://www.farmaciasahumada.cl/catalogsearch/result/index/?p='+str(1)+'&q=' + busqueda
 

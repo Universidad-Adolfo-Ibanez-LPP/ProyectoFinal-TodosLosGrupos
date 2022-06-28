@@ -1,5 +1,4 @@
 busqueda,farmacia,descripcion,precio_clp,precio_uf
-busqueda,farmacia,descripcion,precio_clp,precio_uf
 losartán,Ahumada,"Losartan + Hidroclorotiazida 50 mg_12,5 mg x 30 Comprimidos Recubiertos",5395,0.16
 losartán,Ahumada,"Simperten-D 50 mg/12,5 mg x 30 Comprimidos Recubiertos",27395,0.83
 losartán,Ahumada,Simperten 50 mg x 30 Comprimidos Recubiertos,7695,0.23
@@ -12,6 +11,9 @@ losartán,Ahumada,Corodin 100mg. Caja 30 Comp.,21195,0.64
 losartán,Ahumada,Losapres 100 mg x 30 Comprimidos Recubiertos,19595,0.59
 losartán,Ahumada,Corodin 50 mg x 30 Comprimidos Recubiertos,23095,0.7
 losartán,Ahumada,Losapres 50 mg x 30 Comprimidos Recubiertos,26295,0.8
+losartán,Salcobrand,Losartan (B) 50mg 30Com. Rec.,2287,0.07
+losartán,Salcobrand,Losartan 50mg / Hidroclorotiazida 12.5 mg 30 Comprimidos,4839,0.15
+losartán,Salcobrand,Losartan (B) 100mg 30Com. Rec.,7127,0.22
 metformina,Ahumada,Metformina Clorhidrato 850mg. 60com.,2995,0.09
 metformina,Ahumada,Trayenta 5 mg x 30 Comprimidos Recubiertos,47195,1.43
 metformina,Ahumada,Metformina 850mg. Caja 30 Comp.Rec,2495,0.08
@@ -72,6 +74,35 @@ metformina,Ahumada,Glucosan Xr 750mg 30comp Rec,10295,0.31
 metformina,Ahumada,Glicenex SR 1000 mg x 30 Comprimidos de Liberacion Prolongada,11695,0.35
 metformina,Ahumada,Glafornil 850 mg x 30 Comprimidos Recubiertos,15895,0.48
 metformina,Ahumada,Glifortex 850mg. Caja 30 Comp.,12195,0.37
+metformina,Ahumada,Glucophage 500mg. Caja 30 Comp.,7195,0.22
+metformina,Ahumada,Glafornil XR 750 mg x 30 Comprimidos De Liberación Prolongada,21095,0.64
+metformina,Ahumada,Glucophage 850mg. Caja 60 Comp.,24695,0.75
+metformina,Ahumada,Glifortex XR 500 mg x 30 Comprimidos Recubiertos De Liberacion Prolongada,9195,0.28
+metformina,Ahumada,Glifortex XR 750 mg x 30 Comprimidos Recubiertos De Liberacion Prolongada,13295,0.4
+metformina,Ahumada,Jardiance 10 mg x 30 Comprimidos Recubiertos,37795,1.14
+metformina,Ahumada,Jardiance 25 mg x 30 Comprimidos Recubiertos,45195,1.37
+metformina,Ahumada,Glafornil 500 mg x 30 Comprimidos Recubiertos,10195,0.31
+metformina,Ahumada,Glafornil XR 1000 mg x 30 Comprimidos De Liberación Prolongada,25395,0.77
+metformina,Ahumada,Glimefor XR 750 mg x 30 Comprimidos De Liberacion Prolongada,11795,0.36
+metformina,Ahumada,Glimefor XR 500 mg x 30 Comprimidos De Liberacion Prolongada,6995,0.21
+metformina,Ahumada,Glicenex 850 mg x 30 Comprimidos Recubiertos,9995,0.3
+metformina,Salcobrand,Metformina (B) 850mg 30Com.Rec.,2903,0.09
+metformina,Salcobrand,Merformina (B) 850mg 60 Comprimidos Recubiertos,4575,0.14
+metformina,Salcobrand,Glicenex 850mg Metformina 30 Comprimidos Recubiertos,8623,0.26
+metformina,Salcobrand,Metformina (B) 850mg 60Com.Rec.,4399,0.13
 busqueda,farmacia,descripcion,precio_clp,precio_uf
-busqueda,farmacia,descripcion,precio_clp,precio_uf
-busqueda,farmacia,descripcion,precio_clp,precio_uf
+losartán,Ahumada,"Losartan + Hidroclorotiazida 50 mg_12,5 mg x 30 Comprimidos Recubiertos",5395,0.16
+losartán,Ahumada,"Simperten-D 50 mg/12,5 mg x 30 Comprimidos Recubiertos",27395,0.83
+losartán,Ahumada,Simperten 50 mg x 30 Comprimidos Recubiertos,7695,0.23
+losartán,Ahumada,"Hyzaar 50 mg/12,5 mg x 30 Comprimidos Recubiertos",23895,0.72
+losartán,Ahumada,Hyzaar Forte 100 mg/25 mg x 30 Comprimidos Recubiertos,19895,0.6
+losartán,Ahumada,Simperten-D 100 mg/25 mg x 30 Comprimidos Recubiertos,29745,0.9
+losartán,Ahumada,Cozaar 50 mg x 30 Comprimidos Recubiertos,22895,0.69
+losartán,Ahumada,Cozaar 100 mg x 30 Comprimidos Recubiertos,23995,0.73
+losartán,Ahumada,Corodin 100mg. Caja 30 Comp.,21195,0.64
+losartán,Ahumada,Losapres 100 mg x 30 Comprimidos Recubiertos,19595,0.59
+losartán,Ahumada,Corodin 50 mg x 30 Comprimidos Recubiertos,23095,0.7
+losartán,Ahumada,Losapres 50 mg x 30 Comprimidos Recubiertos,26295,0.8
+losartán,Salcobrand,Losartan (B) 50mg 30Com. Rec.,2287,0.07
+losartán,Salcobrand,Losartan 50mg / Hidroclorotiazida 12.5 mg 30 Comprimidos,4839,0.15
+losartán,Salcobrand,Losartan (B) 100mg 30Com. Rec.,7127,0.22

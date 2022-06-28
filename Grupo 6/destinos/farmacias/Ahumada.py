@@ -1,11 +1,12 @@
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup
-from Medicamento import *
-from BancoUF import *
+from csvOriented.Medicamento import *
+from destinos.BancoUF import *
+from destinos.farmacias.Farmacia import *
 import csv
 
 
-class Ahumada():
+class Ahumada(Farmacia):
 
     def __init__(self, busqueda,url):
         self.busqueda = busqueda
@@ -22,20 +23,14 @@ class Ahumada():
        
     
 
-    def getdata(self):
-        """Devuelve el html de la pagina"""
-        s = HTMLSession()
-        r = s.get(self.get_url())
-        r.html.render(sleep=4,timeout=90)
-        soup = BeautifulSoup(r.html.html, 'html.parser')
-        return soup
-
+    # def _getdata(self):
+    """funcion heredada de clase farmacia"""
 
     def getnextpage(self):
         """Devuelve el url de la siguiente pagina"""
 
-        soup = self.getdata()
-        # soup = self.getdata() 
+        soup = self._getdata()
+        # soup = self._getdata() 
         # page = soup.find("ul",{"class" : "items pages-items"})
         # print(page)
         # print(page)
@@ -47,7 +42,7 @@ class Ahumada():
 
     def get_product_list(self):
         """Devuelve una lista de productos"""
-        soup = self.getdata()
+        soup = self._getdata()
         product_list = soup.findAll("li",{"class" : "item product product-item"})
 
         n = len(product_list)
