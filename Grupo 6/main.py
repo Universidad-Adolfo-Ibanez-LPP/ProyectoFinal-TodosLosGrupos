@@ -32,11 +32,10 @@ for line in lines:
 
 print(abuscar)
 
-# uf = int(Banco().get_uf())
+uf = int(Banco().get_uf())
 
-# print("El valor actual del UF es: " + str(uf))
+print("El valor actual del UF es: " + str(uf))
 
-uf = 33060
 
 
 
