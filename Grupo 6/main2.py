@@ -5,7 +5,7 @@ from Salcobrand import *
 from Medicamento import *
 from BancoUF import *
 
-url_ahumada = "https://www.farmaciasahumada.cl/catalogsearch/result/index/?p=1&q="
+
 url_salcobrand = "https://salcobrand.cl/search_result?query="
 
 
