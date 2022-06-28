@@ -1,6 +1,7 @@
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup
-from sympy import print_maple_code
+
+from destinos.BancoUF import *
 
 from destinos.farmacias.Ahumada import *
 from destinos.farmacias.Salcobrand import *
@@ -8,8 +9,8 @@ from destinos.farmacias.RedFarma import *
 
 from csvOriented.Escritor import Escritor
 from csvOriented.Medicamento import *
-from destinos.BancoUF import *
 from csvOriented.Escritor import *
+
 import csv
 
 url_ahumada = "https://www.farmaciasahumada.cl/catalogsearch/result/index/?p=1&q="

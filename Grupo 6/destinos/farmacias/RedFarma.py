@@ -1,8 +1,10 @@
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup
-from csvOriented.Medicamento import *
+
 from destinos.BancoUF import *
 from destinos.farmacias.Farmacia import *
+
+from csvOriented.Medicamento import *
 import csv
 
 
