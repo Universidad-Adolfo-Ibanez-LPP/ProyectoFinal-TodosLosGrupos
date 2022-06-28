@@ -1,12 +1,10 @@
 from bs4 import BeautifulSoup
+from requests_html import HTMLSession
 import requests
 import parser
 
 
 class Banco():
-
-    def __init__(self, busqueda):
-        self.busqueda = busqueda
 
     def get_url(self):
         url = 'https://www.bcentral.cl/inicio'

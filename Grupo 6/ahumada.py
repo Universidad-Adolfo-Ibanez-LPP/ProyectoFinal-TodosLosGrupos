@@ -7,14 +7,17 @@ import parser
 
 class Ahumada():
 
-    def __init__(self, busqueda):
+    def __init__(self, busqueda,url):
         self.busqueda = busqueda
+        self.url = url
+
+
 
     def get_busqueda(self):
         return self.busqueda
 
     def get_url(self):
-        url = 'https://www.farmaciasahumada.cl/catalogsearch/result/index/?p=1&q=' + self.busqueda
+        url = self.url
         return url
        
     
@@ -23,7 +26,7 @@ class Ahumada():
         """Devuelve el html de la pagina"""
         s = HTMLSession()
         r = s.get(self.get_url())
-        r.html.render(sleep=1,timeout=20)
+        r.html.render(sleep=4,timeout=90)
         soup = BeautifulSoup(r.html.html, 'html.parser')
         return soup
 
@@ -31,16 +34,16 @@ class Ahumada():
     def getnextpage(self):
         """Devuelve el url de la siguiente pagina"""
 
-        soup = super(Ahumada, self).getdata()
+        soup = self.getdata()
         # soup = self.getdata() 
-        page = soup.find("ul",{"class" : "items pages-items"})
+        # page = soup.find("ul",{"class" : "items pages-items"})
         # print(page)
-        if page.find("li",{"class":"item pages-item-next"}):
-            print("hola")
-            url = page.find("li",{"class":"item pages-item-next"}).find("a").attrs['href']
+        # print(page)
+        try:
+            url = soup.find_all("a",class_="action next")[0]["href"]
             return url
-        else:
-            return
+        except:
+            return False
 
     def get_product_list(self):
         """Devuelve una lista de productos"""
