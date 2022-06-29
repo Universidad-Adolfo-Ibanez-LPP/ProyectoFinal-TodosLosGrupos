@@ -12,3 +12,9 @@ Integrantes:
 - Agustín Guerrero
 - Vicente Ladevig
 - Martin Luna
+
+
+python3 bancocentral-scraping.py ----> Actualizar valor UF
+python3 farmacia-scraping.py -a ----> scraping farmacia ahumada
+python3 farmacia-scraping.py -s ----> scraping farmacia salco
+python3 estadisticas.py ----> Estadisticas
