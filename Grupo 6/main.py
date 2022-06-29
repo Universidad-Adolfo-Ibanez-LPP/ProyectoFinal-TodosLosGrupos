@@ -11,6 +11,10 @@ from csvOriented.Escritor import Escritor
 from csvOriented.Medicamento import *
 from csvOriented.Escritor import *
 
+from Logical.Estadistico import *
+from Logical.main_funciones import *
+from Logical.Redactor import *
+
 import csv
 
 
@@ -106,6 +110,6 @@ for busqueda in abuscar:
     print("Se escribio en el csv los resultados de "+busqueda)
 
 
-
+print_estadisticos()
 
 print("TERMINE")
