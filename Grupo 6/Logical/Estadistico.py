@@ -70,3 +70,8 @@ def mas_caro_por_busqueda(lista,dic,i):
   lista.insert(i,dict1)
   
   return mas_caro_por_busqueda(lista,dic,i+1)
+
+def mayor_que_uno(dic):
+
+ return list(filter(lambda x: (float(x['precioUF'])) > 1, dic))
+
