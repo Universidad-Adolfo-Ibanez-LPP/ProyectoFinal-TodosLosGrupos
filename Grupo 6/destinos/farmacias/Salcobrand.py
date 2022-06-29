@@ -1,4 +1,3 @@
-
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup
 
@@ -28,19 +27,6 @@ class Salcobrand(Farmacia):
     
 
 
-    # def getnextpage(self):
-    #     """Devuelve el url de la siguiente pagina"""
-        
-    #     soup = super(Salcobrand, self).getdata()
-    #     page = soup.find("ul",{"class" : "items pages-items"})
-    #     # print(page)
-    #     if page.find("li",{"class":"item pages-item-next"}):
-    #         print("hola")
-    #         url = page.find("li",{"class":"item pages-item-next"}).find("a").attrs['href']
-    #         return url
-    #     else:
-    #         return
-
     def get_product_list(self):
         """Devuelve una lista de productos"""
         soup = self._getdata()
@@ -51,8 +37,3 @@ class Salcobrand(Farmacia):
         #     product_list.pop()
         return product_list
 
-
-    # print("chao")
-    # print("chao")
-    # print("chao")
-    # print("chao")
