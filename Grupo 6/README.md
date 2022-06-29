@@ -21,5 +21,7 @@ El resultado de correr el proyecto 25 minutos con todos los remedios está en "e
 Se necesita instalar 
 
 -bs4
+
 -requests_html
+
 -csv (instalado en python)
