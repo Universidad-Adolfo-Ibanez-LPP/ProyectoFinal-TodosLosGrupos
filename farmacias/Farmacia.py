@@ -11,7 +11,7 @@ class farmacia:
         lista_precio_uf = []  # Lista vacía.
         # Ciclo que recorrerá la lista de precio y calcula el precio en UF, guardandolo en la lista.
         for i in lista_precio:
-            lista_precio_uf.append(i / uf_price)  # Se guarda.
+            lista_precio_uf.append(round(i / uf_price, 2))  # Se guarda.
         return lista_precio_uf
 
     # Función que toma las listas de atributos, guarda estos en una estructura y las guarda en una lista.
