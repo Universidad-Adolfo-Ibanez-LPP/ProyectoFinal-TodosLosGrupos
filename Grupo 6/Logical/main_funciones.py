@@ -29,8 +29,12 @@ def print_estadisticos():
   titlesvar=["farmacia","varianza"]
   varianza=varianza_remedio_farmacia(dic_datos)
   varianza=attach_price_to_drugstorevar(varianza)
-
-
+  
+  diezmil= mayor_que_10mil(dic_datos)
+  
+  menor_a_1UF=menor_que_uno(dic_datos)
+  
+  dic_to_csv(titles,diezmil,"cuesta_mas_de_10mil")
   dic_to_csv(titles,caro,"Remedio_mas_caro_por_farmacia")
   dic_to_csv(titles,menor_a_mil,"Cuestan_menos_de_1000CLP")
   dic_to_csv(titles,mas_barato_buscados,"Mas_barato_por_busqueda")
@@ -38,6 +42,7 @@ def print_estadisticos():
   dic_to_csv(titlesdesv,desv_estandar,"Desviacion_estandar_de_farmacias")
   dic_to_csv(titles,busqueda_mas_caro,"Mas_caro_por_busqueda")
   dic_to_csv(titles,mayor_a_1UF,"Cuestan_mas_de_1UF")
+  dic_to_csv(titles,menor_a_1UF,"Cuestan_menos_de_1UF")
   dic_to_csv(titlesvar,varianza,"Varianza_de_farmacias")
   print("Hecho")
  
