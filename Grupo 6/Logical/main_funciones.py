@@ -20,10 +20,15 @@ promedio_cada_farmacia=attach_price_to_drugstore(promedio_cada_farmacia)
 desv_estandar=desv_estandar_remedio_farmacia(dic_datos)
 desv_estandar=attach_price_to_drugstore(desv_estandar)
 
+busqueda_mas_caro=[]
+busqueda_mas_caro=mas_caro_por_busqueda(busqueda_mas_caro,dic_datos,0)
 
 dic_to_csv(titles,caro,"Remedio_mas_caro_por_farmacia")
 dic_to_csv(titles,menor_a_mil,"Cuestan_menos_de_1000CLP")
 dic_to_csv(titles,mas_barato_buscados,"Mas_barato_por_busqueda")
 dic_to_csv(titlesespfarmacia,promedio_cada_farmacia,"Precio_promedio_total_farmacia")  
 dic_to_csv(titlesespfarmacia,desv_estandar,"Desviacion_estandar_de_farmacias")  
+dic_to_csv(titles,busqueda_mas_caro,"Mas_caro_por_busqueda")
+
+
 print("Hecho")  
