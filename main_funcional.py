@@ -6,6 +6,7 @@ from farmacias import Farmex as F
 from datetime import date
 import pandas as pd
 from estadisticas import Estadistico
+import sys
 
 #Variables:
 
@@ -24,7 +25,7 @@ parametros = pd.DataFrame({'Fecha captura': date.today(), 'Valor UF':uf_price}, 
 manager.toCSV(parametros, 'no farmacia', path, 0) #Se pasa el dataframe a .csv y se exporta.
 
 #Leemos el archivo de principios activos. Se guarda en una lista.
-principios_activos = manager.ReadCVS(path, 'principios_activos.txt')
+principios_activos = manager.ReadCVS(path, sys.argv[1]) 
 
 scrapping_number = 0
 for i in principios_activos:
