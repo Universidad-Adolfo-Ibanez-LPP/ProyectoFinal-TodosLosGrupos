@@ -2,6 +2,8 @@ from operator import itemgetter
 from functools import reduce
 import statistics
 
+#paradigma funcional 
+
 def mas_caro_en_farmacia(dict):
   maxPricedItems=[]
   
@@ -94,4 +96,6 @@ def mayor_que_10mil(dic):
   
   return list(filter(lambda x: (int(x['precioCLP'])) > 10000, dic))
 
+def menor_que_uno(dic):
 
+ return list(filter(lambda x: (float(x['precioUF'])) < 1, dic))
