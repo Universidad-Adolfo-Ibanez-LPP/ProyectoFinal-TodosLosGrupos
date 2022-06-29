@@ -1,0 +1,17 @@
+/home/franalvarezi/Desktop/Proyecto final LYP/Proyecto_FinalG3/src/main/java/com/uai/app/exceptions/PersonWithoutAdressException.java
+/home/franalvarezi/Desktop/Proyecto final LYP/Proyecto_FinalG3/src/main/java/com/uai/app/logic/DataManager.java
+/home/franalvarezi/Desktop/Proyecto final LYP/Proyecto_FinalG3/src/main/java/com/uai/app/logic/parsers/BancoCentralParser.java
+/home/franalvarezi/Desktop/Proyecto final LYP/Proyecto_FinalG3/src/main/java/com/uai/app/files/UFFileManager.java
+/home/franalvarezi/Desktop/Proyecto final LYP/Proyecto_FinalG3/src/main/java/com/uai/app/exceptions/NotMainPanelLoadedException.java
+/home/franalvarezi/Desktop/Proyecto final LYP/Proyecto_FinalG3/src/main/java/com/uai/app/logic/ParserManager.java
+/home/franalvarezi/Desktop/Proyecto final LYP/Proyecto_FinalG3/src/main/java/com/uai/app/logic/SearchManager.java
+/home/franalvarezi/Desktop/Proyecto final LYP/Proyecto_FinalG3/src/main/java/com/uai/app/dominio/enums/Tittles.java
+/home/franalvarezi/Desktop/Proyecto final LYP/Proyecto_FinalG3/src/main/java/com/uai/app/exceptions/DataNotLoadedException.java
+/home/franalvarezi/Desktop/Proyecto final LYP/Proyecto_FinalG3/src/main/java/com/uai/app/App.java
+/home/franalvarezi/Desktop/Proyecto final LYP/Proyecto_FinalG3/src/main/java/com/uai/app/logic/parsers/AhumadaParser.java
+/home/franalvarezi/Desktop/Proyecto final LYP/Proyecto_FinalG3/src/main/java/com/uai/app/files/FileManager.java
+/home/franalvarezi/Desktop/Proyecto final LYP/Proyecto_FinalG3/src/main/java/com/uai/app/dominio/UF.java
+/home/franalvarezi/Desktop/Proyecto final LYP/Proyecto_FinalG3/src/main/java/com/uai/app/dominio/Medicamento.java
+/home/franalvarezi/Desktop/Proyecto final LYP/Proyecto_FinalG3/src/main/java/com/uai/app/logic/parsers/FarmazonParser.java
+/home/franalvarezi/Desktop/Proyecto final LYP/Proyecto_FinalG3/src/main/java/com/uai/app/logic/parsers/UAIAbstractParser.java
+/home/franalvarezi/Desktop/Proyecto final LYP/Proyecto_FinalG3/src/main/java/com/uai/app/exceptions/CSVNotFoundException.java
