@@ -6,6 +6,8 @@ Para que el codigo funcione hay que darle al inicio de 'main.py'/'main_funcional
 
 La parte procedural del código se encuentra cuando se hace scrapping, que es en el paquete de 'Farmacias'. La parte de OOP está en todo el código, sobre todo para el manejo de archivo y almacenamiento de datos. La parte funcional se encuentra al final con las estadisticas, principalmente en el paquete que le corresponde.
 
+El código fue utilizado principalmente en PyCharm y Replit.
+
 Grupo 17.
 
 Integrantes
