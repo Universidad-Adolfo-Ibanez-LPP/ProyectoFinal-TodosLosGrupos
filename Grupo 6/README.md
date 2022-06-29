@@ -18,10 +18,14 @@ Por lo anterior, para corregir es preferible dar al programa pocos medicamentos 
 
 El resultado de correr el proyecto 25 minutos con todos los remedios está en "ejemplo.csv", para poder usar out.csv para corregir
 
+Los metodos lógicos, en la carpeta Logic, generan csvs con el dato correspondiente a cada uno
+
 Se necesita instalar 
 
 -bs4
 
 -requests_html
 
--csv (instalado en python)
+-csv (instalado en python vanilla)
+
+-statistics (instalado en python vanilla)
