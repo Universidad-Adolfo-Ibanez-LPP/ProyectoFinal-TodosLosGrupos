@@ -75,3 +75,17 @@ def mayor_que_uno(dic):
 
  return list(filter(lambda x: (float(x['precioUF'])) > 1, dic))
 
+def varianza_remedio_farmacia(dic):
+  varianza=[]
+  pricelist1=(list(map((itemgetter('precioCLP')),list(filter(lambda x: x["farmacia"]=="Ahumada", dic)))))
+  pricelist2=(list(map((itemgetter('precioCLP')),list(filter(lambda x: x["farmacia"]=="Salcobrand", dic)))))
+  pricelist3=(list(map((itemgetter('precioCLP')),list(filter(lambda x: x["farmacia"]=="RedFarma", dic)))))
+
+
+
+  varianza.append(statistics.variance(map(int,pricelist1)))
+  varianza.append(statistics.variance(map(int,pricelist2)))
+  varianza.append(statistics.variance(map(int,pricelist3)))
+
+
+  return varianza
