@@ -72,68 +72,55 @@ for i in principios_activos:
 
     # DR.SIMI
     # -------------------------------------------------------------------------
-    
-    #Se define el objeto que posee el menor precio de la farmacia del doctor simi y luego se printean sus atributos.
     simi_med_min = Estadistico.minPrice(medicamentos_simi, lista_precio_simi)
     print('\nMedicamento con el precio mínimo (DR SIMI):')
     print('Nombre:', simi_med_min.nombre, '\nFarmacia: Dr.Simi', '\nDescripción:', simi_med_min.info.strip(),
           '\nPrecio:', simi_med_min.precio, '\nPrecio UF:', simi_med_min.precioUF)
-    
-    #Se define el objeto que posee el max precio de la farmacia del doctor simi y luego se printean sus atributos.
-    simi_med_max = Estadistico.maxPrice(medicamentos_simi, lista_precio_simi)
-    print('\nMedicamento con el precio máximo (DR SIMI):')
-    print('Nombre:', simi_med_max.nombre, '\nFarmacia: Dr.Simi', '\nDescripción:', simi_med_max.info.strip(),
-          '\nPrecio:', simi_med_max.precio, '\nPrecio UF:', simi_med_max.precioUF)
-    
-    #Se busca el promedio de los precios de la farmacia del doctor simi.
+
+    #simi_med_max = Estadistico.maxPrice(medicamentos_simi, lista_precio_simi)
+    #print('\nMedicamento con el precio máximo (DR SIMI):')
+    #print('Nombre:', simi_med_max.nombre, '\nFarmacia: Dr.Simi', '\nDescripción:', simi_med_max.info.strip(), '\nPrecio:', simi_med_max.precio, '\nPrecio UF:', simi_med_max.precioUF)
+
     print('\nPrecio promedio (DR SIMI):')
     simi_mean_price = Estadistico.Mean(lista_precio_simi)
     simi_mean_price_UF = Estadistico.Mean(lista_precio_uf_simi)
-    print('Nombre:', simi_med_max.nombre, '\nFarmacia: Dr.Simi', '\nPrecio promedio:', simi_mean_price,
-          '\nPrecio Promedio UF:', simi_mean_price_UF)
-    
-    #Cuartiles de los datos
+    #print('Nombre:', simi_med_max.nombre, '\nFarmacia: Dr.Simi', '\nPrecio promedio:', simi_mean_price, '\nPrecio Promedio UF:', simi_mean_price_UF)
+
     print("\nQuartiles (precio) (DR SIMI):")
     print("Q1:", Estadistico.cuartiles(lista_precio_simi, 1))
     print("Q2:", Estadistico.cuartiles(lista_precio_simi, 2))
     print("Q3:", Estadistico.cuartiles(lista_precio_simi, 3))
-    
-    #Desviación estandar y varianza de los datos.
+
     n = Estadistico.list_length(lista_precio_simi)
     print("\nDesviación Estándar (precio) (DR SIMI):", Estadistico.desvia_estantar(lista_precio_simi, simi_mean_price, n))
     print("\nVarianza:", Estadistico.varianza(lista_precio_simi, simi_mean_price, n))
     print('\nProductos totales encontrados:', len(lista_nombre_simi))
 
     # -------------------------------------------------------------------------
+
     # AHUMADA
     # -------------------------------------------------------------------------
-    
-    #Se define el objeto que posee el menor precio de la farmacia ahumada y luego se printean sus atributos.
     ahu_med_min = Estadistico.minPrice(medicamentos_ahumada, lista_precio_ahumada)
     print('\nMedicamento con el precio mínimo (AHUMADA):')
     print('Nombre:', ahu_med_min.nombre, '\nFarmacia: Ahumada', '\nDescripción:', ahu_med_min.info.strip(), '\nPrecio:',
           ahu_med_min.precio, '\nPrecio UF:', ahu_med_min.precioUF)
-    
-    #Se define el objeto que posee el max precio de la farmacia ahumada y luego se printean sus atributos.
+
     ahu_med_max = Estadistico.maxPrice(medicamentos_ahumada, lista_precio_ahumada)
     print('\nMedicamento con el precio máximo (AHUMADA):')
     print('Nombre:', ahu_med_max.nombre, '\nFarmacia: Ahumada', '\nDescripción:', ahu_med_max.info.strip(), '\nPrecio:',
           ahu_med_max.precio, '\nPrecio UF:', ahu_med_max.precioUF)
-    
-    #Se busca el promedio de los precios de la farmacia de la farmacia ahumada.
+
     print('\nPrecio promedio (AHUMADA):')
     ahu_mean_price = Estadistico.Mean(lista_precio_ahumada)
     ahu_mean_price_UF = Estadistico.Mean(lista_precio_uf_ahumada)
     print('Nombre:', ahu_med_max.nombre, '\nFarmacia: Ahumada', '\nPrecio promedio:', ahu_mean_price,
           '\nPrecio Promedio UF:', ahu_mean_price_UF)
-    
-    #Cuartiles de los datos.
+
     print("\nQuartiles (precio) (AHUMADA):")
     print("Q1:", Estadistico.cuartiles(lista_precio_ahumada, 1))
     print("Q2:", Estadistico.cuartiles(lista_precio_ahumada, 2))
     print("Q3:", Estadistico.cuartiles(lista_precio_ahumada, 3))
-    
-    #Desviación estandar y varianza de los datos.
+
     n = Estadistico.list_length(lista_precio_ahumada)
     print("\nDesviación Estándar (precio) (AHUMADA):", Estadistico.desvia_estantar(lista_precio_ahumada, ahu_mean_price, n))
     print("\nVarianza:", Estadistico.varianza(lista_precio_ahumada, ahu_mean_price, n))
@@ -141,43 +128,35 @@ for i in principios_activos:
 
     # FARMEX
     # -------------------------------------------------------------------------
-    
-    ##Se define el objeto que posee el menor precio de la farmacia ahumada y luego se printean sus atributos.
     far_med_min = Estadistico.minPrice(medicamentos_farmex, lista_precio_farmex)
     print('\nMedicamento con el precio mínimo (FARMEX):')
     print('Nombre:', far_med_min.nombre, '\nFarmacia: Farmex', '\nDescripción:', far_med_min.info.strip(), '\nPrecio:',
           far_med_min.precio, '\nPrecio UF:', far_med_min.precioUF)
-    
-    #Se define el objeto que posee el max precio de la farmacia ahumada y luego se printean sus atributos.
+
     far_med_max = Estadistico.maxPrice(medicamentos_farmex, lista_precio_farmex)
     print('\nMedicamento con el precio máximo: (FARMEX)')
     print('Nombre:', far_med_max.nombre, '\nFarmacia: Farmex', '\nDescripción:', far_med_max.info.strip(), '\nPrecio:',
           far_med_max.precio, '\nPrecio UF:', far_med_max.precioUF)
-    
-    #Se busca el promedio de los precios de la farmacia de la farmacia ahumada.
+
     print('\nPrecio promedio (FARMEX):')
     far_mean_price = Estadistico.Mean(lista_precio_farmex)
     far_mean_price_UF = Estadistico.Mean(lista_precio_uf_farmex)
     print('Nombre:', far_med_max.nombre, '\nFarmacia: Farmex', '\nPrecio promedio:', far_mean_price,
           '\nPrecio Promedio UF:', far_mean_price_UF)
-    
-    #Cuartiles de los datos.
+
     print("\nQuartiles (precio) (FARMEX):")
     print("Q1:", Estadistico.cuartiles(lista_precio_farmex, 1))
     print("Q2:", Estadistico.cuartiles(lista_precio_farmex, 2))
     print("Q3:", Estadistico.cuartiles(lista_precio_farmex, 3))
-    
-    #Desviación estandar y varianza de los datos.
+
     n = Estadistico.list_length(lista_precio_ahumada)
     print("\nDesviación Estándar (precio):", Estadistico.desvia_estantar(lista_precio_farmex, far_mean_price, n))
     print("\nVarianza:", Estadistico.varianza(lista_precio_farmex, far_mean_price, n))
     print('\nProductos totales encontrados:', len(lista_nombre_farmex))
-    print('\nMediana (precio):', Estadistico.mediana(lista_precio_farmex))
 
-    # PRECIOS POR PRINCIPIO ACTIVO (Max, Min, Mean)
+    # PRECIOS POR PRINCIPIO ACTIVO
     print('\nPrecios por principio activo: Dr.Simi')
-    print('Nombre:', simi_med_max.nombre, '\nPrecio mínimo:', simi_med_min.precio, '\nPrecio máximo:',
-          simi_med_max.precio, '\nPrecio promedio:', simi_mean_price, '\nPrecio Promedio UF:', simi_mean_price_UF)
+    #print('Nombre:', simi_med_max.nombre, '\nPrecio mínimo:', simi_med_min.precio, '\nPrecio máximo:', simi_med_max.precio, '\nPrecio promedio:', simi_mean_price, '\nPrecio Promedio UF:', simi_mean_price_UF)
 
     print('\nPrecios por principio activo: Ahumada')
     print('Nombre:', ahu_med_max.nombre, '\nPrecio mínimo:', ahu_med_min.precio, '\nPrecio máximo:', ahu_med_max.precio,
@@ -187,5 +166,5 @@ for i in principios_activos:
     print('Nombre:', far_med_max.nombre, '\nPrecio mínimo:', far_med_min.precio, '\nPrecio máximo:', far_med_max.precio,
           '\nPrecio promedio:', far_mean_price, '\nPrecio Promedio UF:', far_mean_price_UF)
 
-    # Frecuencia por rango (todos los datos de las 3 farmacias).
+    # Frecuencia por rango
     Estadistico.frecuenciaRangoPrecio(df_final)
