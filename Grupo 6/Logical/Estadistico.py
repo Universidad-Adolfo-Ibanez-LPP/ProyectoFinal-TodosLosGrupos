@@ -89,3 +89,9 @@ def varianza_remedio_farmacia(dic):
 
 
   return varianza
+
+def mayor_que_10mil(dic):
+  
+  return list(filter(lambda x: (int(x['precioCLP'])) > 10000, dic))
+
+
