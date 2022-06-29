@@ -58,3 +58,15 @@ def desv_estandar_remedio_farmacia(dic):
 
 
   return desv_estandar
+
+def mas_caro_por_busqueda(lista,dic,i):
+  
+  busquedas=list(set(list(map(itemgetter('principio_activo'),dic))))
+  
+  if len(busquedas)==i:
+    return lista
+    
+  dict1=max((list(filter(lambda x: x["principio_activo"]==busquedas[i], dic))),key=lambda x: int(x['precioCLP']))
+  lista.insert(i,dict1)
+  
+  return mas_caro_por_busqueda(lista,dic,i+1)
