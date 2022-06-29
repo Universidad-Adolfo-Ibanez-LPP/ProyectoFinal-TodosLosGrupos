@@ -58,7 +58,7 @@ class farmex(F.farmacia):
                     meds_info.append(info) #Descripción.
                     meds_name.append(name) #Nombre.
                     meds_farm.append("Farmex") #Farmacia.
-                    meds_price_uf.append(price / price_uf)  #Precio en UF.
+                    meds_price_uf.append(round(price / price_uf,2))  #Precio en UF.
 
                 elif price_aux is not None: #Si es que el precio está rebajado. (Se considera el precio sin oferta).
                     price = price_aux.text.strip() #Extrae el texto de manera limpia.
@@ -67,7 +67,7 @@ class farmex(F.farmacia):
                     meds_info.append(info) #Descripción
                     meds_name.append(name) #Nombre
                     meds_farm.append("Farmex") #Farmacia
-                    meds_price_uf.append(price / price_uf) #Precio en UF
+                    meds_price_uf.append(round(price / price_uf,2)) #Precio en UF
 
         return meds_name, meds_info, meds_price, meds_farm, meds_price_uf
 
