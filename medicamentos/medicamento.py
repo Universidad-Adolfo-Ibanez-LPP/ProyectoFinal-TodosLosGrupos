@@ -5,7 +5,7 @@ class Medicamento:
         self.nombre = nombre
         self.info = info
         self.precio = precio
-        self.precioUF = self.precio/UF
+        self.precioUF = round(precio/UF, 2)
 
     #Getters. (En caso de necesitarlos.)
     def getNombre(self):
