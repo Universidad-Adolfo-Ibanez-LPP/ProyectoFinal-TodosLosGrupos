@@ -13,7 +13,6 @@ import sys
 path = r'C:\Users\drago\PycharmProjects\Scrapping' #Ruta donde se irán guardando los csv.
 banco = UF.BancoCentral("https://portalbiblioteca.bcentral.cl/web/banco-central/inicio") #Se crea el objeto de banco.
 uf_price = banco.find_Uf() #Se obtiene el valor de la UF.
-find = 'Paracetamol' #Lo que se quiere buscar.
 manager = A.Archivo() #Se crea el manager de archivos.
 
 dr_simi = S.simi('Dr. Simi', 'https://www.drsimi.cl/?gclid=CjwKCAjwzeqVBhAoEiwAOrEmzUsmFhzyBClMLg782m40-Xhn626Pz7fjO2XgsAirx8K7R0YTLuS4ihoChhwQAvD_BwE')
@@ -25,7 +24,9 @@ parametros = pd.DataFrame({'Fecha captura': date.today(), 'Valor UF':uf_price}, 
 manager.toCSV(parametros, 'no farmacia', path, 0) #Se pasa el dataframe a .csv y se exporta.
 
 #Leemos el archivo de principios activos. Se guarda en una lista.
-principios_activos = manager.ReadCVS(path, sys.argv[1]) #'principios_activos.txt'
+principios_activos = manager.ReadCVS(path, sys.argv[1])
+
+#'principios_activos.txt'
 
 scrapping_number = 0
 for i in principios_activos:

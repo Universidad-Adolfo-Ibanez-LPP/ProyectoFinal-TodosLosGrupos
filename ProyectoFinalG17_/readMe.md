@@ -1,5 +1,3 @@
-
-
 El proyecto consta de varios paquetes y .py que configuran este. El archivo principal que corre el código es main_funcional.py, que cumple con hacer webscrapping y guardar los datos en varios .csv (dependiendo de lo que se le de en principios_activos.txt). Luego está main.py que cuenta con esto y además con los datos estadisticos, los cuales deberían mostrarse en pantalla, haciendo esto menos con el precio maximo de la farmacia Dr. Simi debido a un error desconocido. 
 
 Para que el codigo funcione hay que darle al inicio de 'main.py'/'main_funcional.py' hay que dar en la variable path la dirección donde se quieran que se guarden los archivos. Cuenta con un argumento a darle, que es el nombre del archivo donde están los principios activos.
@@ -16,16 +14,3 @@ Integrantes
 - Pablo Silva
 - José Castillo
 - Mario Rozas
-
-
-Proyecto Final Grupo 13
-
-¡Bienvenido al Proyecto Final! Para evitar problemas correr en Google Colab, por favor.
-
-Integrantes:
-Belén Álamo
-Antonio Cardoen
-Ignacio Court
-Fernanda Nicolás
-
-
