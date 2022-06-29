@@ -12,10 +12,14 @@ class Banco():
 
     def getdata(self):
         """Devuelve el html de la pagina"""
-        s = HTMLSession()
-        r = s.get(self.get_url())
-        r.html.render(sleep=1,timeout=60)
-        soup = BeautifulSoup(r.html.html, 'html.parser')
+        try:
+            s = HTMLSession()
+            r = s.get(self.get_url())
+            r.html.render(sleep=1,timeout=90)
+            soup = BeautifulSoup(r.html.html, 'html.parser')
+        except:
+            print("Scrapping al banco central falló, corra el programa nuevamente")
+            exit()
         return soup
 
     def get_uf(self):

@@ -13,8 +13,10 @@ from csvOriented.Escritor import *
 
 import csv
 
-url_ahumada = "https://www.farmaciasahumada.cl/catalogsearch/result/index/?p=1&q="
-url_salcobrand = "https://salcobrand.cl/search_result?query="
+
+
+f = open("out.csv", "w+") #Borramos el contenido del csv
+f.close()
 
 with open('principios_activos.txt',encoding='utf8') as f:
     lines = f.readlines()
@@ -35,6 +37,7 @@ print(abuscar)
 
 uf = int(Banco().get_uf())
 
+    
 print("El valor actual del UF es: " + str(uf))
 
 
@@ -47,6 +50,8 @@ for busqueda in abuscar:
     paginas_ahumada = []
     paginas_salcobrand = []
     paginas_red = []
+
+    ### Ahumada
 
     url_ahumada = 'https://www.farmaciasahumada.cl/catalogsearch/result/index/?p='+str(1)+'&q=' + busqueda
 
@@ -61,20 +66,19 @@ for busqueda in abuscar:
 
     escritor_ahumada = Escritor(busqueda = busqueda,uf=uf,paginas = paginas_ahumada)
     
-    escritor_ahumada.to_csv_ahumada()
+    ### Salcobrand
 
     url_salcobrand = "https://salcobrand.cl/search_result?query=" + busqueda
     f_salcobrand= Salcobrand(busqueda=busqueda, url=url_salcobrand)
     paginas_salcobrand.append(f_salcobrand) 
 
     escritor_salcobrand= Escritor(busqueda=busqueda,uf=uf,paginas=paginas_salcobrand)
-    escritor_salcobrand.to_csv_salcobrand()
 
+    ### RedFarma
 
     url_red = "https://www.redfarma.cl/productos/?nombre=" + busqueda + "&pagina=1"
     f_red = RedFarma(busqueda,url_red)
     paginas_red.append(f_red) 
-    escritor_red= Escritor(busqueda=busqueda,uf=uf,paginas=paginas_red)
 
     numero  = 1
 
@@ -90,21 +94,17 @@ for busqueda in abuscar:
             break
 
     escritor_red = Escritor(busqueda = busqueda,uf=uf,paginas = paginas_red)
+    
+    ### Escritura en CSV
+
+
+    escritor_ahumada.to_csv_ahumada()
     escritor_red.to_csv_red()
-    print("TERMINE RED")
+    escritor_salcobrand.to_csv_salcobrand()
 
 
+    print("Se escribio en el csv los resultados de "+busqueda)
 
-
-
-
-
-
-
-
-
-# ######
-#     print("TERMINE AHUMADA")
 
 
 
